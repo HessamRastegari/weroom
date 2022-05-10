@@ -14,4 +14,6 @@
     <color name="blue_light_2">#B8FFF9</color>
     <color name="blue_light_3">#85F4FF</color>
     <color name="blue_light_8">#42C2FF</color>
+    <color name="grey_3">#606060</color>
+
 </resources>
