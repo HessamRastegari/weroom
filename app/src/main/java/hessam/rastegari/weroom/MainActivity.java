@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
         rv = findViewById(R.id.horizontalRv);
         dataSource = new ArrayList<>();
-        dataSource.add("Hello");
-        dataSource.add("World");
-        dataSource.add("to");
-        dataSource.add("the");
-        dataSource.add("Code");
-        dataSource.add("City");
+        dataSource.add("Digital Marketing Design");
+        dataSource.add("Natural Matters");
+        dataSource.add("Educational");
+        dataSource.add("Partnership");
+        dataSource.add("Just For Fun");
+        dataSource.add("Feeling Sad");
         dataSource.add("*****");
 
 

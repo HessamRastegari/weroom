@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/blue_gradient.xml" value="0.2055" />
+        <entry key="app/src/main/res/drawable/ic_baseline_account_circle_64.xml" value="0.2055" />
+        <entry key="app/src/main/res/drawable/ic_baseline_menu_48.xml" value="0.2055" />
         <entry key="app/src/main/res/font/source_sans_pro.xml" value="0.38055555555555554" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.32075805664062496" />
         <entry key="app/src/main/res/layout/rv_item.xml" value="0.29846014492753625" />

@@ -11,6 +11,8 @@
     // Custom colors
 
     <color name="blue_light_1">#EFFFFD</color>
+    <color name="blue_gradient_1">#51c3ff</color>
+    <color name="blue_gradient_2">#43b9f5</color>
     <color name="blue_light_2">#B8FFF9</color>
     <color name="blue_light_3">#85F4FF</color>
     <color name="blue_light_8">#42C2FF</color>
