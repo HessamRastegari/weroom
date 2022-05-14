@@ -2,10 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="240dp"
-    android:layout_height="330dp"
+    android:layout_height="340dp"
     android:layout_margin="2dp"
     app:cardCornerRadius="26dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,12 +28,17 @@
 
         <ImageView
             android:id="@+id/mainIcon"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_alignParentStart="true"
+            android:layout_width="172dp"
+            android:layout_height="172dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:src="@drawable/avatar1"
             android:scaleType="centerCrop" />
 
         <LinearLayout
+            android:id="@+id/titleAndDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/backIcon"
@@ -57,9 +63,58 @@
                 android:layout_alignParentBottom="true"
                 android:fontFamily="@font/sourcesansprolight"
                 android:paddingLeft="10dp"
+                android:paddingBottom="8dp"
                 android:text="Digital Design thinking"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_below="@id/titleAndDesc"
+            android:weightSum="0.2">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="0.1">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ninepatch"
+                    android:src="@drawable/ic_baseline_chat_24"
+                    android:padding="6dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9 chat"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/sourcesansprolightitalic"
+                    android:layout_weight="0.1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="0.1">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ninepatch"
+                    android:src="@drawable/ic_baseline_supervisor_account_24"
+                    android:padding="6dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18 online"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/sourcesansprolightitalic"
+                    android:layout_weight="0.1"/>
+            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
