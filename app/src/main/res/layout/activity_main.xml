@@ -22,25 +22,30 @@
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp">
+            android:padding="12dp"
+            android:weightSum="1">
 
             <ImageView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="0.1"
                 android:src="@drawable/ic_baseline_menu_48" />
 
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight="0.8" />
+
             <ImageView
+                android:id="@+id/imgProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:src="@drawable/ic_baseline_account_circle_64" />
 
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_weight="0.8" />
+
 
         </LinearLayout>
 

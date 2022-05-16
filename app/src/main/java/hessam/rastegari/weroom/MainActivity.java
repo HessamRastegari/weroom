@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ActiveweroomRVAdapter activeweroomRVAdapter;
     CategoriesRVAdapter categoriesRVAdapter;
     CurrentRVAdapter currentRVAdapter;
+    ImageView imgProfile;
 
 
 
@@ -32,19 +36,29 @@ public class MainActivity extends AppCompatActivity {
         catRV = findViewById(R.id.catHorizontalRv);
         currentHorizontalRv = findViewById(R.id.currentHorizontalRv);
 
+        imgProfile = findViewById(R.id.imgProfile);
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         dataSource = new ArrayList<>();
         imgDataSource = new ArrayList<>();
         catDataSource = new ArrayList<>();
         catImgDataSource = new ArrayList<>();
         currentDatSource = new ArrayList<>();
 
-        dataSource.add("Digital Marketing Design");
-        dataSource.add("Natural Matters");
-        dataSource.add("Educational");
-        dataSource.add("Partnership");
-        dataSource.add("Just For Fun");
+        dataSource.add("Arcade");
+        dataSource.add("For Fun");
+        dataSource.add("Pet");
         dataSource.add("Feeling Sad");
-        dataSource.add("*****");
+        dataSource.add("Business");
+        dataSource.add("Hot");
+        dataSource.add("PRIDE");
 
         imgDataSource.add(R.drawable.avatar1);
         imgDataSource.add(R.drawable.avatar2);
@@ -66,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
 
         catImgDataSource.add(R.drawable.ic_baseline_card_travel_24);
         catImgDataSource.add(R.drawable.ic_baseline_child_care_24);
-        catImgDataSource.add(R.drawable.ic_baseline_card_travel_24);
-        catImgDataSource.add(R.drawable.ic_baseline_child_care_24);
-        catImgDataSource.add(R.drawable.ic_baseline_card_travel_24);
-        catImgDataSource.add(R.drawable.ic_baseline_child_care_24);
-        catImgDataSource.add(R.drawable.ic_baseline_card_travel_24);
+        catImgDataSource.add(R.drawable.ic_baseline_pets_24);
+        catImgDataSource.add(R.drawable.ic_baseline_mood_bad_24);
+        catImgDataSource.add(R.drawable.ic_baseline_business_24);
+        catImgDataSource.add(R.drawable.ic_baseline_local_fire_department_24);
+        catImgDataSource.add(R.drawable.ic_baseline_outlined_flag_24);
 
 
         currentDatSource.add("Arcade");

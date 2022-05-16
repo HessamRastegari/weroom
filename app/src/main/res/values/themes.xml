@@ -17,4 +17,10 @@
         <item name="android:windowTranslucentNavigation">true</item>
 
     </style>
+    <style name="Theme.Weroom.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Weroom.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Weroom.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
