@@ -10,6 +10,8 @@
         <entry key="app/src/main/res/drawable/ic_baseline_menu_48.xml" value="0.2055" />
         <entry key="app/src/main/res/font/source_sans_pro.xml" value="0.38055555555555554" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.32075805664062496" />
+        <entry key="app/src/main/res/layout/activity_map.xml" value="0.33950046253469013" />
+        <entry key="app/src/main/res/layout/activity_maps_temp.xml" value="0.1735042735042735" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.16621376811594202" />
         <entry key="app/src/main/res/layout/categories_rv_item.xml" value="0.29846014492753625" />
         <entry key="app/src/main/res/layout/current_rv_item.xml" value="0.29846014492753625" />

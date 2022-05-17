@@ -2,15 +2,10 @@ package hessam.rastegari.weroom;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 

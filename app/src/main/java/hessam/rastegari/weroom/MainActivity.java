@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ActiveweroomRVAdapter activeweroomRVAdapter;
     CategoriesRVAdapter categoriesRVAdapter;
     CurrentRVAdapter currentRVAdapter;
-    ImageView imgProfile;
+    ImageView imgProfile, imgDrawer;
 
 
 
@@ -36,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
         catRV = findViewById(R.id.catHorizontalRv);
         currentHorizontalRv = findViewById(R.id.currentHorizontalRv);
 
+        imgDrawer = findViewById(R.id.imgDrawer);
+        imgDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MapsActivityTemp.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         imgProfile = findViewById(R.id.imgProfile);
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
