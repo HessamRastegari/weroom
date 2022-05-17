@@ -5,28 +5,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends Fragment {
 
 
     CardView cardViewMood1,cardViewMood2,cardViewMood3,cardViewMood4,cardViewMood5,cardViewMood6,cardViewMood7,cardViewMood8;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.activity_profile, container, false);
 
-        setContentView(R.layout.activity_profile);
 
-        cardViewMood1 = findViewById(R.id.cardMood1);
-        cardViewMood2 = findViewById(R.id.cardMood2);
-        cardViewMood3 = findViewById(R.id.cardMood3);
-        cardViewMood4 = findViewById(R.id.cardMood4);
-        cardViewMood5 = findViewById(R.id.cardMood5);
-        cardViewMood6 = findViewById(R.id.cardMood6);
-        cardViewMood7 = findViewById(R.id.cardMood7);
-        cardViewMood8 = findViewById(R.id.cardMood8);
+        cardViewMood1 = v.findViewById(R.id.cardMood1);
+        cardViewMood2 = v.findViewById(R.id.cardMood2);
+        cardViewMood3 = v.findViewById(R.id.cardMood3);
+        cardViewMood4 = v.findViewById(R.id.cardMood4);
+        cardViewMood5 = v.findViewById(R.id.cardMood5);
+        cardViewMood6 = v.findViewById(R.id.cardMood6);
+        cardViewMood7 = v.findViewById(R.id.cardMood7);
+        cardViewMood8 = v.findViewById(R.id.cardMood8);
 
         cardViewMood1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        return v;
     }
 
     public void OnCardsClickLinstener (CardView cardView){
@@ -115,10 +119,5 @@ public class ProfileActivity extends AppCompatActivity {
         cardView.setCardBackgroundColor(getResources().getColor(R.color.blue_gradient_2));
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
 }

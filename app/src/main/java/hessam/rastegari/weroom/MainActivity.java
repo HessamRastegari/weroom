@@ -1,17 +1,20 @@
 package hessam.rastegari.weroom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Fragment {
 
     RecyclerView rv,catRV, currentHorizontalRv;
     ArrayList<String> dataSource, catDataSource, currentDatSource;
@@ -27,31 +30,35 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.activity_main, container, false);
 
-        rv = findViewById(R.id.horizontalRv);
-        catRV = findViewById(R.id.catHorizontalRv);
-        currentHorizontalRv = findViewById(R.id.currentHorizontalRv);
+        rv = v.findViewById(R.id.horizontalRv);
 
-        imgDrawer = findViewById(R.id.imgDrawer);
+
+        catRV = v.findViewById(R.id.catHorizontalRv);
+        currentHorizontalRv = v.findViewById(R.id.currentHorizontalRv);
+
+        imgDrawer = v.findViewById(R.id.imgDrawer);
         imgDrawer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MapsActivityTemp.class);
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
                 startActivity(intent);
-                finish();
+                getActivity().finish();
             }
         });
-        imgProfile = findViewById(R.id.imgProfile);
+        imgProfile = v.findViewById(R.id.imgProfile);
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
-                finish();
+                getActivity().finish();
             }
         });
 
@@ -105,26 +112,32 @@ public class MainActivity extends AppCompatActivity {
         currentDatSource.add("PRIDE");
 
 
-        linearLayoutManager = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false);
-        activeweroomRVAdapter = new ActiveweroomRVAdapter(dataSource, imgDataSource, MainActivity.this);
+        linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        activeweroomRVAdapter = new ActiveweroomRVAdapter(dataSource, imgDataSource, getActivity());
         rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(activeweroomRVAdapter);
 
 
-        catLinearLayoutManager = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false);
-        categoriesRVAdapter = new CategoriesRVAdapter(catDataSource, catImgDataSource, MainActivity.this);
+        catLinearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        categoriesRVAdapter = new CategoriesRVAdapter(catDataSource, catImgDataSource, getActivity());
         catRV.setLayoutManager(catLinearLayoutManager);
         catRV.setAdapter(categoriesRVAdapter);
 
 
-        currentLinearLayoutManager = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.VERTICAL,false) {
+        currentLinearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false) {
             @Override
             public boolean canScrollVertically() {
                 return false;
             }
         };
-        currentRVAdapter = new CurrentRVAdapter(currentDatSource, MainActivity.this);
+        currentRVAdapter = new CurrentRVAdapter(currentDatSource, getActivity());
         currentHorizontalRv.setLayoutManager(currentLinearLayoutManager);
         currentHorizontalRv.setAdapter(currentRVAdapter);
+
+
+        return v;
+
+
+
     }
 }

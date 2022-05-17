@@ -442,5 +442,10 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_below="@id/cardFeedback"/>
+
     </RelativeLayout>
 </ScrollView>
