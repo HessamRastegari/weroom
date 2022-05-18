@@ -2,6 +2,7 @@ package hessam.rastegari.weroom;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -84,6 +85,9 @@ public class ProfileActivity extends Fragment {
     }
 
     public void OnCardsClickLinstener (CardView cardView){
+
+        final MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.clicksound3);
+        mp.start();
 
         cardViewMood1.setElevation(12);
         cardViewMood1.setCardBackgroundColor(getResources().getColor(R.color.white));

@@ -18,43 +18,13 @@
             android:scaleType="centerCrop"
             android:src="@drawable/backtop" />
 
-        <LinearLayout
-            android:id="@+id/topBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:weightSum="1">
 
-            <ImageView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0.1"
-                android:src="@drawable/ic_baseline_menu_48" />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_weight="0.8" />
-
-            <ImageView
-                android:id="@+id/imgProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:src="@drawable/ic_baseline_account_circle_64" />
-
-
-
-        </LinearLayout>
 
 
         <LinearLayout
             android:id="@+id/llImageAndName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/topBar"
             android:layout_margin="8dp">
 
             <ImageView
@@ -356,21 +326,13 @@
             android:text="Visibility"
             android:textSize="34sp" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardVisibility"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/visibilityTitle"
-            android:outlineSpotShadowColor="@color/blue_light_8"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
-            android:layout_margin="10dp">
 
             <LinearLayout
+                android:id="@+id/visibilityll"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
-                android:weightSum="0.3">
+                android:weightSum="0.3"
+                android:layout_below="@id/visibilityTitle">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -391,36 +353,26 @@
                     android:layout_weight="0.1"
                     android:paddingRight="8dp"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/feedbackTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cardVisibility"
+            android:layout_below="@id/visibilityll"
             android:fontFamily="@font/sourcesansproblack"
             android:paddingLeft="12dp"
             android:paddingTop="12dp"
             android:text="Feedback"
             android:textSize="34sp" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardFeedback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/feedbackTitle"
-            android:outlineSpotShadowColor="@color/yellow_1"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+
 
             <LinearLayout
+                android:id="@+id/feedbackll"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:layout_below="@id/feedbackTitle">
 
                 <TextView
                     android:layout_width="120dp"
@@ -440,12 +392,7 @@
                     android:layout_weight="0.1"
                     android:src="@drawable/ic_baseline_keyboard_arrow_right_32"/>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_below="@id/cardFeedback"/>
 
     </RelativeLayout>
 </ScrollView>

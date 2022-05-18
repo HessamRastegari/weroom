@@ -43,24 +43,6 @@ public class MainActivity extends Fragment {
         catRV = v.findViewById(R.id.catHorizontalRv);
         currentHorizontalRv = v.findViewById(R.id.currentHorizontalRv);
 
-        imgDrawer = v.findViewById(R.id.imgDrawer);
-        imgDrawer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MapsActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
-        imgProfile = v.findViewById(R.id.imgProfile);
-        imgProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
 
         dataSource = new ArrayList<>();
         imgDataSource = new ArrayList<>();

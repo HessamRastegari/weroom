@@ -8,6 +8,8 @@
         <entry key="app/src/main/res/drawable/fade_out_color.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_64.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_baseline_menu_48.xml" value="0.2055" />
+        <entry key="app/src/main/res/drawable/ic_logo2.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/ic_logo_topbar_vector.xml" value="0.1895" />
         <entry key="app/src/main/res/font/source_sans_pro.xml" value="0.38055555555555554" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.32075805664062496" />
         <entry key="app/src/main/res/layout/activity_main_fragment.xml" value="0.25" />
@@ -16,6 +18,7 @@
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.16621376811594202" />
         <entry key="app/src/main/res/layout/categories_rv_item.xml" value="0.29846014492753625" />
         <entry key="app/src/main/res/layout/current_rv_item.xml" value="0.29846014492753625" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.14494569757727652" />
         <entry key="app/src/main/res/layout/rv_item.xml" value="0.29846014492753625" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.29282700421940927" />
       </map>

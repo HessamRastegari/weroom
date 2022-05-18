@@ -16,45 +16,14 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/back" />
+            android:src="@drawable/backtop" />
 
-        <LinearLayout
-            android:id="@+id/topBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:weightSum="1">
-
-            <ImageView
-                android:id="@+id/imgDrawer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0.1"
-                android:src="@drawable/ic_baseline_menu_48" />
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_weight="0.8" />
-
-            <ImageView
-                android:id="@+id/imgProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:src="@drawable/ic_baseline_account_circle_64" />
-
-
-
-        </LinearLayout>
 
 
         <TextView
             android:id="@+id/catTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/topBar"
             android:fontFamily="@font/sourcesansproblack"
             android:paddingLeft="12dp"
             android:paddingTop="12dp"
@@ -108,5 +77,9 @@
             android:layout_below="@id/currentTitle"
             android:scrollbars="none" />
 
+
+
     </RelativeLayout>
+
+
 </ScrollView>

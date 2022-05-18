@@ -25,6 +25,7 @@ public class MainFragmentActivity extends AppCompatActivity {
     final Fragment mainFragment = new MainActivity();
     final Fragment profileFragment = new ProfileActivity();
     final Fragment mapFragment = new MapsActivity();
+    final Fragment searchFragment = new SearchFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = mainFragment;
 
@@ -36,10 +37,10 @@ public class MainFragmentActivity extends AppCompatActivity {
         binding = ActivityMainFragmentBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 //        replaceFragment(new MainActivity());
-        fm.beginTransaction().add(R.id.frameLayout, mainFragment, "1").commit();
-        fm.beginTransaction().add(R.id.frameLayout, profileFragment, "2").hide(profileFragment).commit();
-        fm.beginTransaction().add(R.id.frameLayout,mapFragment, "3").hide(mapFragment).commit();
-
+        fm.beginTransaction().add(R.id.frameLayout, mapFragment, "1").hide(mapFragment).commit();
+        fm.beginTransaction().add(R.id.frameLayout, mainFragment, "2").commit();
+        fm.beginTransaction().add(R.id.frameLayout, searchFragment, "3").hide(searchFragment).commit();
+        fm.beginTransaction().add(R.id.frameLayout, profileFragment, "4").hide(profileFragment).commit();
 
 
         binding.animationMap.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +48,7 @@ public class MainFragmentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 fm.beginTransaction().hide(active).show(mapFragment).commit();
                 active = mapFragment;
+                binding.animationMap.playAnimation();
             }
         });
 
@@ -55,14 +57,16 @@ public class MainFragmentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 fm.beginTransaction().hide(active).show(profileFragment).commit();
                 active = profileFragment;
+                binding.animationProfile.playAnimation();
             }
         });
 
         binding.animationSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fm.beginTransaction().hide(active).show(mainFragment).commit();
-                active = mainFragment;
+                fm.beginTransaction().hide(active).show(searchFragment).commit();
+                active = searchFragment;
+                binding.animationSearch.playAnimation();
             }
         });
         binding.animationHome.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +74,7 @@ public class MainFragmentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 fm.beginTransaction().hide(active).show(mainFragment).commit();
                 active = mainFragment;
+                binding.animationHome.playAnimation();
             }
         });
 
