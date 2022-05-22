@@ -26,6 +26,7 @@ public class MainFragmentActivity extends AppCompatActivity {
     final Fragment profileFragment = new ProfileActivity();
     final Fragment mapFragment = new MapsActivity();
     final Fragment searchFragment = new SearchFragment();
+    final ChatFragment chatFragment = new ChatFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = mainFragment;
 
@@ -39,7 +40,8 @@ public class MainFragmentActivity extends AppCompatActivity {
 //        replaceFragment(new MainActivity());
         fm.beginTransaction().add(R.id.frameLayout, mapFragment, "1").hide(mapFragment).commit();
         fm.beginTransaction().add(R.id.frameLayout, mainFragment, "2").commit();
-        fm.beginTransaction().add(R.id.frameLayout, searchFragment, "3").hide(searchFragment).commit();
+//        fm.beginTransaction().add(R.id.frameLayout, searchFragment, "3").hide(searchFragment).commit();
+        fm.beginTransaction().add(R.id.frameLayout, chatFragment, "3").hide(chatFragment).commit();
         fm.beginTransaction().add(R.id.frameLayout, profileFragment, "4").hide(profileFragment).commit();
 
 
@@ -64,8 +66,8 @@ public class MainFragmentActivity extends AppCompatActivity {
         binding.animationSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fm.beginTransaction().hide(active).show(searchFragment).commit();
-                active = searchFragment;
+                fm.beginTransaction().hide(active).show(chatFragment).commit();
+                active = chatFragment;
                 binding.animationSearch.playAnimation();
             }
         });

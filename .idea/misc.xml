@@ -18,7 +18,9 @@
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.16621376811594202" />
         <entry key="app/src/main/res/layout/categories_rv_item.xml" value="0.29846014492753625" />
         <entry key="app/src/main/res/layout/current_rv_item.xml" value="0.29846014492753625" />
+        <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.14494569757727652" />
+        <entry key="app/src/main/res/layout/message_list_tem.xml" value="0.1816123188405797" />
         <entry key="app/src/main/res/layout/rv_item.xml" value="0.29846014492753625" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.29282700421940927" />
       </map>

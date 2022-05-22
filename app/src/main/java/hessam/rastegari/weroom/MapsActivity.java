@@ -5,19 +5,23 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import hessam.rastegari.weroom.databinding.ActivityMapsBinding;
@@ -27,6 +31,7 @@ public class MapsActivity extends Fragment {
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
     private SupportMapFragment mMapFragment;
+    Marker marker;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +44,12 @@ public class MapsActivity extends Fragment {
             mMapFragment.getMapAsync(onMapReadyCallback);
         }
         getChildFragmentManager().beginTransaction().replace(R.id.map, mMapFragment).commit();//
+
+
+
+
+
+
         return v;
     }
 
@@ -68,9 +79,10 @@ public class MapsActivity extends Fragment {
             // Add a marker in Sydney and move the camera
             LatLng sydney = new LatLng(-34, 151);
 
-            mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+            marker = mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,12));
+
         }
     };
 
