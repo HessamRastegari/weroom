@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "369566863935",
+    "project_id": "weroom-771db",
+    "storage_bucket": "weroom-771db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369566863935:android:2d29cf603c3a6bb8469e8a",
+        "android_client_info": {
+          "package_name": "hessam.rastegari.weroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369566863935-to5t3c4sl4gvufc0ip1mt57r2hdmpln1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnaQdjLrb86DMdK9QU5bm2iNS0Kh_2gMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369566863935-to5t3c4sl4gvufc0ip1mt57r2hdmpln1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
