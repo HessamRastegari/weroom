@@ -5,10 +5,219 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
-<LinearLayout
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/backtop" />
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/tvLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="weroom"
+        android:gravity="center"
+        android:letterSpacing="0.05"
+        android:textColor="@color/blue_gradient_2"
+        android:fontFamily="@font/picobola"
+        android:textSize="42sp"
+        android:shadowRadius="3"
+        android:shadowColor="@color/blue_light_8"
+        android:paddingTop="20dp"/>
+        android:paddingLeft="20dp"/>
+        android:paddingRight="20dp"/>
+        android:paddingRight="8dp"/>
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="a chat application based on your mood"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_below="@id/tvLogo"/>
+
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:id="@+id/signinAnimationView"-->
+<!--        android:layout_width="170dp"-->
+<!--        android:layout_height="170dp"-->
+<!--        app:lottie_autoPlay="true"-->
+<!--        app:lottie_loop="true"-->
+<!--        android:layout_marginLeft="-15dp"-->
+<!--        android:layout_marginTop="-20dp"-->
+<!--        android:elevation="11dp"-->
+<!--        app:lottie_rawRes="@raw/back_button"-->
+<!--        android:layout_below="@id/tvDescription"/>-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Sign up"-->
+<!--        android:background="@drawable/curved_back_blue_8"-->
+<!--        android:padding="10dp"-->
+<!--        android:layout_marginLeft="40dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:translationZ="1dp"-->
+<!--        android:elevation="12dp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_below="@id/tvDescription"/>-->
+
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/curved_back_grey_1"
+        android:elevation="10dp"
+        android:layout_below="@id/tvDescription"
+        android:padding="10dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="0.2">
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:hint="Firstname"
+            android:background="@drawable/curved_back_white"
+            android:padding="10dp"
+            android:layout_margin="8dp"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:hint="Surename"
+            android:background="@drawable/curved_back_white"
+            android:padding="10dp"
+            android:layout_margin="8dp"/>
+        </LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:background="@drawable/curved_back_white"
+            android:padding="10dp"
+            android:layout_margin="8dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:background="@drawable/curved_back_white"
+            android:padding="10dp"
+            android:layout_margin="8dp"/>
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign-In"
+            android:padding="10dp"
+            android:layout_margin="8dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DADADA"
+            android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/llEasysignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llMain2"
+            android:orientation="horizontal"
+            android:paddingBottom="2dp"
+            android:weightSum="0.2">
+            <TextView
+                android:id="@+id/tvORLogin"
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="Easy Sign In: "
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/llMain2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/curved_back_grey_1"
+        android:elevation="10dp"
+        android:layout_below="@id/llMain"
+        android:padding="10dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="If you already have an account:"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:background="@drawable/curved_back_white"
+            android:padding="10dp"
+            android:layout_margin="8dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:background="@drawable/curved_back_white"
+            android:padding="10dp"
+            android:layout_margin="8dp"/>
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:padding="10dp"
+            android:layout_margin="8dp"/>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_below="@+id/llMain"
+    android:visibility="gone">
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,10 +289,6 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"/>
 
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SEND"/>
+
 </LinearLayout>
 </RelativeLayout>

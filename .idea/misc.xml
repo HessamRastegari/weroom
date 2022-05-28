@@ -5,6 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable/blue_gradient.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/curved_back.xml" value="0.2055" />
+        <entry key="app/src/main/res/drawable/curved_back_blue_8.xml" value="0.2055" />
+        <entry key="app/src/main/res/drawable/curved_back_grey_1.xml" value="0.2055" />
+        <entry key="app/src/main/res/drawable/curved_back_white.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/fade_color.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/fade_out_color.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_baseline_account_circle_64.xml" value="0.2055" />
