@@ -2,8 +2,13 @@ package hessam.rastegari.weroom;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import hessam.rastegari.weroom.data.CategoryData;
+import hessam.rastegari.weroom.viewmodel.RegisterActivityViewModel;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +16,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
 
 public class MainActivity extends Fragment {
+
+
+
+    //-----------New------------
+    private CategoriesRVAdapterU categoriesRVAdapterU;
 
     RecyclerView rv,catRV, currentHorizontalRv;
     ArrayList<String> dataSource, catDataSource, currentDatSource;
@@ -42,6 +56,11 @@ public class MainActivity extends Fragment {
 
         catRV = v.findViewById(R.id.catHorizontalRv);
         currentHorizontalRv = v.findViewById(R.id.currentHorizontalRv);
+
+
+        //--------------NEW
+        initViewModel();
+
 
 
         dataSource = new ArrayList<>();
@@ -100,6 +119,13 @@ public class MainActivity extends Fragment {
         rv.setAdapter(activeweroomRVAdapter);
 
 
+
+        //----------NEW------------
+        catLinearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        catRV.setLayoutManager(catLinearLayoutManager);
+        categoriesRVAdapterU = new CategoriesRVAdapterU();
+        catRV.setAdapter(categoriesRVAdapter);
+
         catLinearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
         categoriesRVAdapter = new CategoriesRVAdapter(catDataSource, catImgDataSource, getActivity());
         catRV.setLayoutManager(catLinearLayoutManager);
@@ -122,4 +148,29 @@ public class MainActivity extends Fragment {
 
 
     }
+
+
+
+
+    //---------------NEW --------------
+    private void initViewModel(){
+
+        RegisterActivityViewModel registerActivityViewModel = new ViewModelProvider(this).get(RegisterActivityViewModel.class);
+
+//        registerActivityViewModel.setInputs();
+
+        registerActivityViewModel.getMutableLiveDataCategroryData().observe(getActivity(), new Observer<List<CategoryData>>() {
+            @Override
+            public void onChanged(List<CategoryData> categoryData) {
+                if (categoryData != null){
+                    categoriesRVAdapterU.setListDataItem(categoryData);
+                    categoriesRVAdapterU.notifyDataSetChanged();
+                } else{
+                    Toast.makeText(getActivity(), "Error in getting data", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+//        registerActivityViewModel.makeApiCall();
+    }
+
 }

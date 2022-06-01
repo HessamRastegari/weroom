@@ -14,42 +14,44 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import hessam.rastegari.weroom.data.CategoryData;
 
-public class CategoriesRVAdapter extends RecyclerView.Adapter<CategoriesRVAdapter.MyHolder> {
+public class CategoriesRVAdapterU extends RecyclerView.Adapter<CategoriesRVAdapterU.MyHolder> {
 
+    private List<CategoryData> listCategoryDataItems;
 
-    ArrayList<String> data;
-    ArrayList<Integer> img;
-    Context context;
-    public CategoriesRVAdapter(ArrayList<String> data, ArrayList<Integer> img, Context context) {
-        this.data = data;
-        this.img = img;
-        this.context = context;
+    public void setListDataItem(List<CategoryData> listCategoryDataItems){
+        this.listCategoryDataItems = listCategoryDataItems;
     }
 
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.categories_rv_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.categories_rv_item, parent, false);
         return new MyHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        holder.tvTitle.setText(data.get(position));
-        holder.imgMainIcon.setImageResource(img.get(position));
+
+        holder.tvTitle.setText(listCategoryDataItems.get(position).catName);
 
     }
+
+
 
 
     @Override
     public int getItemCount() {
-        return data.size();
 
+        if(listCategoryDataItems == null)
+            return 0;
+        else
+            return listCategoryDataItems.size();
     }
 
 
 
-    class MyHolder extends RecyclerView.ViewHolder{
+    public class MyHolder extends RecyclerView.ViewHolder{
 
 
         TextView tvTitle;

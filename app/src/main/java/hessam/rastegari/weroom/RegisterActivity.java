@@ -1,11 +1,18 @@
 package hessam.rastegari.weroom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import dagger.hilt.android.AndroidEntryPoint;
 import hessam.rastegari.weroom.connections.RetrofirServices;
+import hessam.rastegari.weroom.data.CategoryData;
 import hessam.rastegari.weroom.data.RegisterClass;
 import hessam.rastegari.weroom.data.ResponseClass;
 import hessam.rastegari.weroom.databinding.ActivityMainFragmentBinding;
 import hessam.rastegari.weroom.databinding.ActivityRegisterBinding;
+import hessam.rastegari.weroom.loading.LoadingDialog;
+import hessam.rastegari.weroom.loading.LoadingSnackbar;
+import hessam.rastegari.weroom.viewmodel.RegisterActivityViewModel;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,13 +44,17 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+@AndroidEntryPoint
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RetrofirServices retrofirServices;
     private ActivityRegisterBinding activityRegisterBinding;
     GoogleSignInClient mGoogleSignInClient;
+    LoadingDialog loadingDialog;
+    LoadingSnackbar loadingSnackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +65,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         activityRegisterBinding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(activityRegisterBinding.getRoot());
-//        activityRegisterBinding.signinAnimationView.setSpeed(0.5f);
+        activityRegisterBinding.signinAnimationView.setSpeed(0.2f);
+
+        loadingDialog = new LoadingDialog(this);
+        loadingSnackbar = new LoadingSnackbar(this);
 
 //        Gson gson = new GsonBuilder()
 //                .setLenient()
@@ -84,141 +98,52 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         activityRegisterBinding.btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //createPost();
 
+                createPostFeild(activityRegisterBinding.edFirstname.getText().toString(),
+                        activityRegisterBinding.edSurename.getText().toString(),
+                        activityRegisterBinding.edUsername.getText().toString(),
+                        activityRegisterBinding.edPassword.getText().toString(),
+                        "_NONE",
+                        "_NONE",
+                        "_NONE",
+                        0);
 
-
-                // create an instance of the snackbar
-                final Snackbar snackbar = Snackbar.make(view, "", Snackbar.LENGTH_INDEFINITE);
-
-                // inflate the custom_snackbar_view created previously
-                View customSnackView = getLayoutInflater().inflate(R.layout.custom_snackbar_layout, null);
-//                customSnackView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
-
-                // set the background of the default snackbar as transparent
-                snackbar.getView().setBackgroundColor(Color.TRANSPARENT);
-
-                // now change the layout of the snackbar
-                Snackbar.SnackbarLayout snackbarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
-
-                // set padding of the all corners as 0
-                snackbarLayout.setPadding(0, 0, 0, 0);
-//                snackbarLayout.getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
-
-                // register the button from the custom_snackbar_view layout file
-                Button bGotoWebsite = customSnackView.findViewById(R.id.gotoWebsiteButton);
-
-                // now handle the same button with onClickListener
-                bGotoWebsite.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getApplicationContext(), "Redirecting to Website", Toast.LENGTH_SHORT).show();
-                        snackbar.dismiss();
-                    }
-                });
-
-                // add the custom snack bar layout to snackbar layout
-                snackbarLayout.addView(customSnackView, 0);
-
-                snackbar.setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_SLIDE);
-                snackbar.show();
-
-
-                //createPostFeild();
+                loadingDialog.showLoading();
+                loadingSnackbar.ShowSnackBar(view);
             }
         });
     }
 
+    private void createPostFeild(String Firstname, String Surename, String Username, String Password, String Email, String Token, String Avatar, Integer Mood) {
 
-//    private void createPost() {
-//
-//        RegisterClass registerClass = new RegisterClass(activityRegisterBinding.itfirstname.getText().toString(),
-//                activityRegisterBinding.itsurename.getText().toString(),
-//                activityRegisterBinding.itUsername.getText().toString(),
-//                activityRegisterBinding.itpassword.getText().toString(),
-//                "_NONE",
-//                "_NONE",
-//                "_NONE",
-//                1);
-//
-//        Call<ResponseClass> call = retrofirServices.createPost(registerClass);
-//
-//        call.enqueue(new Callback<ResponseClass>() {
-//            @Override
-//            public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
-//
-//                if (!response.isSuccessful()) {
-//                    activityRegisterBinding.textViewResult.setText("Code: " + response.code());
-//                    return;
-//                }else{
-//                    Toast.makeText(RegisterActivity.this, response.body().toString(), Toast.LENGTH_SHORT).show();
-//                }
-//
-////                RegisterClass postResponse = response.body();
-//
-////                String content = "";
-////                content += "Code: " + response.code() + "\n";
-////                content += "ID: " + postResponse.getId() + "\n";
-////                content += "User ID: " + postResponse.getUserId() + "\n";
-////                content += "Title: " + postResponse.getTitle() + "\n";
-////                content += "Text: " + postResponse.getText() + "\n\n";
-//
-//                try {
-//
-//                    String responseRecieved = response.body().toString();
-//                    // Add Your Logic
-//
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//
-//                activityRegisterBinding.textViewResult.setText(response.body().toString());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseClass> call, Throwable t) {
-//                activityRegisterBinding.textViewResult.setText(t.getMessage());
-//            }
-//        });
-//    }
-    private void createPostFeild() {
 
-        RegisterClass registerClass = new RegisterClass(activityRegisterBinding.itfirstname.getText().toString(),
-                activityRegisterBinding.itsurename.getText().toString(),
-                activityRegisterBinding.itUsername.getText().toString(),
-                activityRegisterBinding.itpassword.getText().toString(),
-                "_NONE",
-                "_NONE",
-                "_NONE",
-                1);
-
-        Call<ResponseClass> call = retrofirServices.createPostField(activityRegisterBinding.itfirstname.getText().toString(),
-                activityRegisterBinding.itsurename.getText().toString(),
-                activityRegisterBinding.itUsername.getText().toString(),
-                activityRegisterBinding.itpassword.getText().toString(),
-                "_NONE",
-                "_NONE",
-                "_NONE",
-                1);
+        loadingDialog.showLoading();
+        Call<ResponseClass> call = retrofirServices.createPostField(Firstname,Surename, Username, Password, Email, Token, Avatar, Mood);
 
         call.enqueue(new Callback<ResponseClass>() {
             @Override
             public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
 
                 if (!response.isSuccessful()) {
-                    activityRegisterBinding.textViewResult.setText("Code: " + response.code());
+                    //activityRegisterBinding.textViewResult.setText("Code: " + response.code());
+                    Toast.makeText(RegisterActivity.this, response.code(), Toast.LENGTH_SHORT).show();
+                    loadingDialog.dismissDialog();
                     return;
                 }else{
                     Toast.makeText(RegisterActivity.this, response.body().getSuccess(), Toast.LENGTH_SHORT).show();
+                    loadingDialog.dismissDialog();
+                    Intent intent = new Intent(RegisterActivity.this, MainFragmentActivity.class);
+                    startActivity(intent);
                 }
 
 
-                activityRegisterBinding.textViewResult.setText(response.body().getMessage());
+                //activityRegisterBinding.textViewResult.setText(response.body().getMessage());
             }
 
             @Override
             public void onFailure(Call<ResponseClass> call, Throwable t) {
-                activityRegisterBinding.textViewResult.setText(t.getMessage());
+                Toast.makeText(RegisterActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                loadingDialog.dismissDialog();
             }
         });
     }
@@ -269,9 +194,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             // Signed in successfully, show authenticated UI.
             //updateUI(account);
+
             Toast.makeText(this, "Name: "+account.getGivenName()+"Family Name: "+account.getFamilyName()+" Email: "+account.getEmail(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(RegisterActivity.this, MainFragmentActivity.class);
-            startActivity(intent);
+            String[] separated = account.getEmail().split("@");
+
+            //createPostFeild(account.getGivenName(),account.getFamilyName(),separated[0],"Google",account.getEmail(),"_NONE",account.getPhotoUrl().toString(),0);
+            RegisterClass registerClass = new RegisterClass(account.getGivenName(),account.getFamilyName(),separated[0],"Google",account.getEmail(),"_NONE",account.getPhotoUrl().toString(),0);
+            initViewModel(registerClass);
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -279,5 +208,27 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(this, "we are sorry, there is a problem with your sign in", Toast.LENGTH_SHORT).show();
             //updateUI(null);
         }
+    }
+
+
+    private void initViewModel(RegisterClass registerClass){
+
+        RegisterActivityViewModel registerActivityViewModel = new ViewModelProvider(this).get(RegisterActivityViewModel.class);
+
+        registerActivityViewModel.setInputs(registerClass);
+
+        registerActivityViewModel.getMutableLiveDataCategroryData().observe(this, new Observer<List<CategoryData>>() {
+            @Override
+            public void onChanged(List<CategoryData> categoryData) {
+                if (categoryData != null){
+                    Intent intent = new Intent(RegisterActivity.this, MainFragmentActivity.class);
+                    startActivity(intent);
+                } else{
+                    Toast.makeText(RegisterActivity.this, "Error in getting data", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        registerActivityViewModel.makeApiCall();
     }
 }
